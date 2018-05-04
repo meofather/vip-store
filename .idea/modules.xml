@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/comon/comon.iml" filepath="$PROJECT_DIR$/comon/comon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vip-store.iml" filepath="$PROJECT_DIR$/vip-store.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vip-store-manage/vip-store-manage.iml" filepath="$PROJECT_DIR$/vip-store-manage/vip-store-manage.iml" />
+    </modules>
+  </component>
+</project>

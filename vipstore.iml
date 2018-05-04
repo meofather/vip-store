@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/vip-store-manage/target/classes/spring/applicationContext-common.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/classes/spring/applicationContext-base.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/vip-store-manage-1.0-SNAPSHOT/WEB-INF/classes/spring/applicationContext-base.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/src/main/resources/spring/applicationContext-rest.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/vip-store-manage-1.0-SNAPSHOT/WEB-INF/classes/spring/applicationContext-rest.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/vip-store-manage-1.0-SNAPSHOT/WEB-INF/classes/spring/applicationContext-common.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/vip-store-manage-1.0-SNAPSHOT/WEB-INF/classes/spring/spring-app-mvc.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/src/main/resources/spring/applicationContext-shiro.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/classes/spring/applicationContext-rest.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/src/main/resources/spring/applicationContext-base.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/classes/spring/spring-app-mvc.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/vip-store-manage-1.0-SNAPSHOT/WEB-INF/classes/spring/applicationContext-shiro.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/target/classes/spring/applicationContext-shiro.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/src/main/resources/spring/spring-app-mvc.xml</file>
+          <file>file://$MODULE_DIR$/vip-store-manage/src/main/resources/spring/applicationContext-common.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+</module>

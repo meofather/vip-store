@@ -319,7 +319,7 @@ Header and header elements.
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
-  width: 225px;
+  width: 230px;
 }
 
 .header .brand img {
@@ -1230,7 +1230,7 @@ Portlets
 .portlet.yellow > .portlet-title .caption, .portlet-title.yellow .caption,
 .portlet.red > .portlet-title .caption, .portlet-title.red .caption,
 .portlet.purple > .portlet-title .caption, .portlet-title.purple .caption,
-.portlet.grey > .portlet-title .caption, .portlet-title.dark-grey .caption, {
+.portlet.grey > .portlet-title .caption, .portlet-title.dark-grey .caption {
   color: #fff;
 }
 

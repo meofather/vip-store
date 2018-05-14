@@ -9,8 +9,8 @@ package com.lr.manage.common.interceptor;
  * History: <p>如果有修改过程，请记录</P>
  */
 
-import com.lr.exception.ForbiddenException;
 import com.lr.manage.permission.AuthPermission;
+import com.lr.exception.ForbiddenException;
 import com.lr.manage.permission.AuthorityType;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

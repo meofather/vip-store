@@ -1,7 +1,7 @@
 package com.lr.manage.controller.sys;
 
-import com.lr.manage.common.shiro.ShiroUtils;
 import com.lr.manage.permission.AuthPermission;
+import com.lr.manage.common.shiro.ShiroUtils;
 import com.lr.manage.permission.AuthorityType;
 import com.lr.result.AjaxResult;
 import com.lr.util.IpUtil;

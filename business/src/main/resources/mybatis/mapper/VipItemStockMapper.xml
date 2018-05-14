@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lr.business.dao.VipItemStockMapper">
+    <resultMap id="BaseResultMap" type="com.lr.business.entity.VipItemStock">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="order_no" property="orderNo" jdbcType="VARCHAR"/>
+        <result column="item_id" property="itemId" jdbcType="INTEGER"/>
+        <result column="item_info" property="itemInfo" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="invalidate_start" property="invalidateStart" jdbcType="TIMESTAMP"/>
+        <result column="invalidate_end" property="invalidateEnd" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, order_no, item_id, item_info, mobile, create_time, update_time, invalidate_start, 
+    invalidate_end
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from vip_item_stock
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="listInfos" resultType="com.lr.business.entity.VipItemStock" resultMap="BaseResultMap">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from vip_item_stock
+        <where>
+            item_id = #{query.itemId}
+        </where>
+        ORDER BY create_time DESC
+    </select>
+    <select id="queryByOrderNo" resultType="com.lr.business.entity.VipItemStock">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from vip_item_stock
+        where order_no = #{orderNo}
+    </select>
+    <select id="getOne" resultType="com.lr.business.entity.VipItemStock" resultMap="BaseResultMap">
+         select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from vip_item_stock where item_id = #{itemId} AND order_no = '0000000000' order by invalidate_end DESC limit 0,1
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from vip_item_stock
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByItemId">
+      delete from vip_item_stock
+    where item_id = #{itemId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.lr.business.entity.VipItemStock">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into vip_item_stock (id, order_no, item_id,
+        item_info, mobile, create_time,
+        update_time, invalidate_start, invalidate_end
+        )
+        values (#{id,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{itemId,jdbcType=INTEGER},
+        #{itemInfo,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=TIMESTAMP}, #{invalidateStart,jdbcType=TIMESTAMP}, #{invalidateEnd,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.lr.business.entity.VipItemStock">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into vip_item_stock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            <if test="orderNo != null">
+                order_no,
+            </if>
+            <if test="itemId != null">
+                item_id,
+            </if>
+            <if test="itemInfo != null">
+                item_info,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="invalidateStart != null">
+                invalidate_start,
+            </if>
+            <if test="invalidateEnd != null">
+                invalidate_end,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id,jdbcType=BIGINT},
+            <if test="orderNo != null">
+                #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="itemId != null">
+                #{itemId,jdbcType=INTEGER},
+            </if>
+            <if test="itemInfo != null">
+                #{itemInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="invalidateStart != null">
+                #{invalidateStart,jdbcType=TIMESTAMP},
+            </if>
+            <if test="invalidateEnd != null">
+                #{invalidateEnd,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <insert id="insertBatch">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into vip_item_stock (item_id,
+        item_info, create_time,
+        update_time, invalidate_start, invalidate_end
+        )
+        values
+        <foreach collection="batchDatas" item="item" index="index" separator=",">
+            (#{itemId,jdbcType=INTEGER},
+            #{item,jdbcType=VARCHAR},sysdate(),
+            sysdate(), #{invalidateStart,jdbcType=TIMESTAMP}, #{invalidateEnd,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lr.business.entity.VipItemStock">
+        update vip_item_stock
+        <set>
+            <if test="orderNo != null">
+                order_no = #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="itemId != null">
+                item_id = #{itemId,jdbcType=INTEGER},
+            </if>
+            <if test="itemInfo != null">
+                item_info = #{itemInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="invalidateStart != null">
+                invalidate_start = #{invalidateStart,jdbcType=TIMESTAMP},
+            </if>
+            <if test="invalidateEnd != null">
+                invalidate_end = #{invalidateEnd,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lr.business.entity.VipItemStock">
+    update vip_item_stock
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      item_id = #{itemId,jdbcType=INTEGER},
+      item_info = #{itemInfo,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      invalidate_start = #{invalidateStart,jdbcType=TIMESTAMP},
+      invalidate_end = #{invalidateEnd,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="updateItemIdbyId" >
+        UPDATE vip_item_stock SET item_id = #{itemId},mobile = #{mobile},order_no = #{orderNo} WHERE id = #{id}
+    </update>
+</mapper>

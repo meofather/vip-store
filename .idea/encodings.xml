@@ -2,8 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/comon" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public-component" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/vip-store-manage" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/vip-store-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vipstore/common" charset="UTF-8" />
   </component>
 </project>

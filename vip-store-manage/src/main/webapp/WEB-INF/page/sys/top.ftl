@@ -7,7 +7,7 @@
 <head>
 <#assign ctx = request.contextPath>
     <meta charset="utf-8"/>
-    <title>麦芽普惠信贷信息管理平台|中地集团</title>
+    <title>九九网络科技-个人工作室</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -18,7 +18,9 @@
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="${cdnPath}/common/bootstrap/media/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="${cdnPath}/common/bootstrap/media/css/bootstrap-responsive.min.css" rel="stylesheet"/>
-    <link href="${cdnPath}/common/bootstrap/media/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="${cdnPath}/common/bootstrap/media/css/fa.css" rel="stylesheet" />
+    <link href="${cdnPath}/common/bootstrap/media/css/font-awesome.css" rel="stylesheet"/>
+    <link href="${cdnPath}/common/bootstrap/media/css/glyphicon-halfing.css" rel="stylesheet"/>
     <link href="${cdnPath}/common/bootstrap/media/css/style-metro.css" rel="stylesheet"/>
     <link href="${cdnPath}/common/bootstrap/media/css/style.css" rel="stylesheet"/>
     <link href="${cdnPath}/common/bootstrap/media/css/style-responsive.css" rel="stylesheet"/>
@@ -39,18 +41,15 @@
           media="screen"/>
     <link rel="stylesheet" href="${cdnPath}/common/bootstrap/media/css/select2_metro.css"/>
     <link rel="stylesheet" href="${cdnPath}/common/bootstrap/media/css/chosen.css"/>
-    <link rel="stylesheet" type="text/css" href="${cdnPath}/common/bootstrap/media/css/glyphicons.css" />
-    
+
     <!-- END PAGE LEVEL STYLES -->
 
     <link href="${cdnPath }/common/bootstrap/media/css/DT_bootstrap.css" rel="stylesheet"
           media="screen"/>
-    <link rel="shortcut icon" href="${cdnPath}/common/bootstrap/media/image/favicon.ico"/>
+    <link rel="shortcut icon" href="${cdnPath}/images/logo.ico" />
 
     <link href="${cdnPath }/common/css/validate/validate.css" rel="stylesheet"/>
     <link href="${cdnPath }/common/zTree/zTreeStyle.css" rel="stylesheet"/>
-
-    <link rel="stylesheet" type="text/css" href="${cdnPath}/common/bootstrap/media/css/glyphicons.css" />
 
     <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
     
@@ -59,9 +58,12 @@
     <link href="${cdnPath}/css/district/jquery.city.css" rel="stylesheet" />
 	<link href="${cdnPath}/css/district/animate.min.css" rel="stylesheet" /> <!--可选-->
     <!-- 新增省市区控件 end -->
-    
-    <link href="${cdnPath}/common/bootstrap/media/css/fileinput.css" rel="stylesheet" />
-    
+
+    <!--文件上传控件-->
+    <link href="${cdnPath}/common/inputfile/css/fileinput.css" rel="stylesheet" /> <!--可选-->
+    <link href="${cdnPath}/common/inputfile/themes/explorer-fa/theme.css" rel="stylesheet" /> <!--可选-->
+    <!--文件上传控件-->
+
     <!-- BEGIN CORE PLUGINS -->
     <script src="${cdnPath}/common/bootstrap/media/js/jquery-1.10.1.min.js"></script>
     <script src="${cdnPath}/common/zTree/jquery.ztree.core.js"></script>
@@ -106,18 +108,21 @@
     <script src="${cdnPath }/common/zTree/jquery.ztree.core.min.js"></script>
     <script src="${cdnPath }/common/zTree/jquery.ztree.excheck.min.js"></script>
     
-    <!-- 新增省市区控件 begin -->
+    <#--<!-- 新增省市区控件 begin &ndash;&gt;
     <script src="${cdnPath }/js/jquery.city.js?v=${VERSION_NO}"></script>
     
     <script src="${cdnPath }/js/chinaCitys/city-picker.data.js"></script>
 	<script src="${cdnPath }/js/chinaCitys/city-picker.js"></script>
 	<script src="${cdnPath }/js/chinaCitys/main.js"></script>
 	<link href="${cdnPath }/css/chinaCitys/city-picker.css" rel="stylesheet">
-    <!-- 新增省市区控件 end -->
-    
-    <script src="${cdnPath}/common/bootstrap/media/js/fileinput.js"></script>
-    <script src="${cdnPath}/common/bootstrap/media/js/fileinput_locale_zh.js"></script>
-    
+    <!-- 新增省市区控件 end &ndash;&gt;-->
+
+    <!--文件上传-->
+    <script src="${cdnPath }/common/inputfile/js/fileinput.js" type="text/javascript"></script>
+    <script src="${cdnPath }/common/inputfile/js/locales/zh.js" type="text/javascript"></script>
+    <script src="${cdnPath }/common/inputfile/themes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="${cdnPath }/common/inputfile/themes/fa/theme.js" type="text/javascript"></script>
+    <!--文件上传-->
     <script>
         jQuery(document).ready(function () {
             App.init(); // initlayout and core plugins
@@ -188,7 +193,7 @@
 <div class="header navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="brand" href=""><img src="${cdnPath}/common/bootstrap/media/image/maiyaphlogo2.png" alt="logo"/></a>
+            <a class="brand" href="" style="color: white;">九九网络科技-个人工作室</a>
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">

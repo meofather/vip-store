@@ -23,7 +23,9 @@
     </build>
     <modules>
         <module>vip-store-manage</module>
-        <module>comon</module>
+        <module>business</module>
+        <module>public-component</module>
+        <module>vip-store-web</module>
     </modules>
 
     <properties>
@@ -130,11 +132,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.grant</groupId>
-                <artifactId>grant-service-interface</artifactId>
-                <version>${grantVersion}</version>
-            </dependency>
 
             <!-- begin httpcomponents -->
             <dependency>
@@ -403,6 +400,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
@@ -601,6 +602,10 @@
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>pinyin4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lr.business.dao.VipOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lr.business.entity.VipOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="item_id" property="itemId" jdbcType="INTEGER" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="item_stock_id" property="itemStockId" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="pay_style" property="payStyle" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="deliver_good" property="deliverGood" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_no, item_id, item_stock_id, mobile, pay_style, status, deliver_good, create_time, 
+    price, num,item_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from vip_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="queryByOrderNo" resultType="com.lr.business.entity.VipOrder">
+      select 'true' as QUERYID,
+      <include refid="Base_Column_List" />
+      from vip_order
+      where order_no = #{orderNo,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from vip_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lr.business.entity.VipOrder" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into vip_order (id, order_no, item_id, 
+      item_stock_id, mobile, pay_style, 
+      status, deliver_good, create_time, 
+      price, num)
+    values (#{id,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{itemId,jdbcType=INTEGER}, 
+      #{itemStockId,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{payStyle,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{deliverGood,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{price,jdbcType=DECIMAL}, #{num,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lr.business.entity.VipOrder" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into vip_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="orderNo != null" >
+        order_no,
+      </if>
+      <if test="itemId != null" >
+        item_id,
+      </if>
+      <if test="itemStockId != null" >
+        item_stock_id,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="payStyle != null" >
+        pay_style,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="deliverGood != null" >
+        deliver_good,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="itemName != null" >
+        item_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=BIGINT},
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="itemStockId != null" >
+        #{itemStockId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="payStyle != null" >
+        #{payStyle,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deliverGood != null" >
+        #{deliverGood,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="itemName != null" >
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lr.business.entity.VipOrder" >
+    update vip_order
+    <set >
+      <if test="orderNo != null" >
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        item_id = #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="itemStockId != null" >
+        item_stock_id = #{itemStockId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="payStyle != null" >
+        pay_style = #{payStyle,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="deliverGood != null" >
+        deliver_good = #{deliverGood,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="itemName != null" >
+        item_name = #{itemName,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lr.business.entity.VipOrder" >
+    update vip_order
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      item_id = #{itemId,jdbcType=INTEGER},
+      item_stock_id = #{itemStockId,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      pay_style = #{payStyle,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      deliver_good = #{deliverGood,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=DECIMAL},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateItemIdbyId">
+    UPDATE vip_order SET item_stock_id = #{itemStockId},status = 4 WHERE order_no = #{orderNo}
+  </update>
+</mapper>

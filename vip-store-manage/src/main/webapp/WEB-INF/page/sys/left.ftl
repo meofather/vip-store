@@ -4,14 +4,17 @@
 				<li>
 					<div class="sidebar-toggler hidden-phone"></div>
 				</li>
-				<!--<li class="start active ">
+				<li class="start active ">
 					<a href="index.html">
 						<i class="icon-home"></i> 
-						<span class="title">Dashboard</span>
+						<span class="title">主面板</span>
 						<span class="selected"></span>
 					</a>
-				</li>-->
-				<#if Session.menus??>
+                    <ul class="sub-menu">
+                        <li><a href="${serverPath}/vip_item/pageList.htm">产品管理</a></li>
+					</ul>
+				</li>
+				<#--<#if Session.menus??>
 					<#if Session.menu_index??>
 						<#assign  _menu_index="${Session.menu_index}"/>
 					<#else>
@@ -61,7 +64,7 @@
 							</ul>
 						</li>
 				 	</#list>
-				</#if>
+				</#if>-->
 			</ul>
 		</div>
 		<!--左边导航栏结束-->

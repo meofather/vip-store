@@ -8,7 +8,6 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class AntiXssFilter implements Filter {
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
-            ServletException, UnsupportedEncodingException {
+            ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         Map<String, String[]> parameterMap = req.getParameterMap();
         String method = req.getMethod();

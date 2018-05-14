@@ -1,0 +1,10 @@
+com\lr\business\entity\VipOrder.class
+com\lr\business\service\VipItemBusinessServiceImpl.class
+com\lr\business\entity\VipItem.class
+com\lr\business\dao\VipItemStockMapper.class
+com\lr\business\entity\VipPayResultNotifyRecord.class
+com\lr\business\dao\VipItemMapper.class
+com\lr\business\dao\VipPayResultNotifyRecordMapper.class
+com\lr\business\entity\VipItemStock.class
+com\lr\business\service\VipItemBusinessService.class
+com\lr\business\dao\VipOrderMapper.class

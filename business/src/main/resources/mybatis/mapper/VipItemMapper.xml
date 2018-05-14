@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lr.business.dao.VipItemMapper" >
+  <resultMap id="BaseResultMap" type="com.lr.business.entity.VipItem" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="cost_price" property="costPrice" jdbcType="DECIMAL" />
+    <result column="selling_price" property="sellingPrice" jdbcType="DECIMAL" />
+    <result column="official_price" property="officialPrice" jdbcType="DECIMAL" />
+    <result column="real_stock" property="realStock" jdbcType="INTEGER" />
+    <result column="cache_stock" property="cacheStock" jdbcType="INTEGER" />
+    <result column="sales_volume" property="salesVolume" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lr.business.entity.VipItem" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, item_name, image_url, cost_price, selling_price, official_price, real_stock, 
+    cache_stock, sales_volume
+  </sql>
+  <sql id="Blob_Column_List" >
+    description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from vip_item
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="listInfos" resultType="com.lr.business.entity.VipItem" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      ,
+      <include refid="Blob_Column_List" />
+      from vip_item
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from vip_item
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lr.business.entity.VipItem" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into vip_item (id, item_name, image_url, 
+      cost_price, selling_price, official_price, 
+      real_stock, cache_stock, sales_volume, 
+      description)
+    values (#{id,jdbcType=BIGINT}, #{itemName,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, 
+      #{costPrice,jdbcType=DECIMAL}, #{sellingPrice,jdbcType=DECIMAL}, #{officialPrice,jdbcType=DECIMAL}, 
+      #{realStock,jdbcType=INTEGER}, #{cacheStock,jdbcType=INTEGER}, #{salesVolume,jdbcType=BIGINT}, 
+      #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lr.business.entity.VipItem" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into vip_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="itemName != null" >
+        item_name,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="costPrice != null" >
+        cost_price,
+      </if>
+      <if test="sellingPrice != null" >
+        selling_price,
+      </if>
+      <if test="officialPrice != null" >
+        official_price,
+      </if>
+      <if test="realStock != null" >
+        real_stock,
+      </if>
+      <if test="cacheStock != null" >
+        cache_stock,
+      </if>
+      <if test="salesVolume != null" >
+        sales_volume,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=BIGINT},
+      <if test="itemName != null" >
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="costPrice != null" >
+        #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellingPrice != null" >
+        #{sellingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="officialPrice != null" >
+        #{officialPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="realStock != null" >
+        #{realStock,jdbcType=INTEGER},
+      </if>
+      <if test="cacheStock != null" >
+        #{cacheStock,jdbcType=INTEGER},
+      </if>
+      <if test="salesVolume != null" >
+        #{salesVolume,jdbcType=BIGINT},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lr.business.entity.VipItem" >
+    update vip_item
+    <set >
+      <if test="itemName != null" >
+        item_name = #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="costPrice != null" >
+        cost_price = #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellingPrice != null" >
+        selling_price = #{sellingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="officialPrice != null" >
+        official_price = #{officialPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="realStock != null" >
+        real_stock = #{realStock,jdbcType=INTEGER},
+      </if>
+      <if test="cacheStock != null" >
+        cache_stock = #{cacheStock,jdbcType=INTEGER},
+      </if>
+      <if test="salesVolume != null" >
+        sales_volume = #{salesVolume,jdbcType=BIGINT},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lr.business.entity.VipItem" >
+    update vip_item
+    set item_name = #{itemName,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      selling_price = #{sellingPrice,jdbcType=DECIMAL},
+      official_price = #{officialPrice,jdbcType=DECIMAL},
+      real_stock = #{realStock,jdbcType=INTEGER},
+      cache_stock = #{cacheStock,jdbcType=INTEGER},
+      sales_volume = #{salesVolume,jdbcType=BIGINT},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lr.business.entity.VipItem" >
+    update vip_item
+    set item_name = #{itemName,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      selling_price = #{sellingPrice,jdbcType=DECIMAL},
+      official_price = #{officialPrice,jdbcType=DECIMAL},
+      real_stock = #{realStock,jdbcType=INTEGER},
+      cache_stock = #{cacheStock,jdbcType=INTEGER},
+      sales_volume = #{salesVolume,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateStock">
+     update vip_item
+    set
+      real_stock = real_stock + #{stock,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

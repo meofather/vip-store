@@ -84,9 +84,9 @@
 		<url-pattern>*.htm</url-pattern>
 	</filter-mapping>
 	
-	<filter>
+	<!--<filter>
 		<filter-name>AntiXssFilter</filter-name>
-		<filter-class>com.lr.manage.common.util.AntiXssFilter</filter-class>
+		<filter-class>AntiXssFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>AntiXssFilter</filter-name>
@@ -98,7 +98,7 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>ERROR</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
-	</filter-mapping>
+	</filter-mapping>-->
     <servlet>
         <servlet-name>mvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

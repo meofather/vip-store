@@ -4,7 +4,6 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.util.UrlPathHelper;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.Map;
 
 /**

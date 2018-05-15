@@ -5,10 +5,10 @@
  */
 package com.lr.manage.common.shiro.dto;
 
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
 
 /**
  * 记录登录交易员主要信息到Session的实体

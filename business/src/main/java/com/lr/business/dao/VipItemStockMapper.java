@@ -1,8 +1,8 @@
 package com.lr.business.dao;
 
 import com.lr.business.entity.VipItemStock;
-import com.lr.rom.IBaseMapperDao;
-import com.lr.rom.annotation.Pagination;
+import com.lr.web.rom.IBaseMapperDao;
+import com.lr.web.rom.annotation.Pagination;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -34,7 +34,7 @@ public interface VipItemStockMapper extends IBaseMapperDao {
 
     VipItemStock queryByOrderNo(String orderNo);
 
-    VipItemStock getOne(Integer itemId);
+    VipItemStock getOne(Long itemId);
 
     public int updateItemIdbyId(@Param("id") Long id,
                                 @Param("itemId") Long itemId, @Param("mobile") String mobile,

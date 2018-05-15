@@ -10,8 +10,8 @@ package com.lr.manage.common.interceptor;
  */
 
 import com.lr.manage.permission.AuthPermission;
-import com.lr.exception.ForbiddenException;
 import com.lr.manage.permission.AuthorityType;
+import com.lr.web.exception.ForbiddenException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;

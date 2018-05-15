@@ -1,10 +1,10 @@
 package com.lr.manage.controller.sys;
 
-import com.lr.manage.permission.AuthPermission;
 import com.lr.manage.common.shiro.ShiroUtils;
+import com.lr.manage.permission.AuthPermission;
 import com.lr.manage.permission.AuthorityType;
-import com.lr.result.AjaxResult;
-import com.lr.util.IpUtil;
+import com.lr.web.result.AjaxResult;
+import com.lr.web.util.IpUtil;
 import com.sun.javafx.binding.StringFormatter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;

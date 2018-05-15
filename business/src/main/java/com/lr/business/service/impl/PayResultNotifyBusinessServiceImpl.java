@@ -3,7 +3,7 @@ package com.lr.business.service.impl;
 import com.lr.business.dao.VipPayResultNotifyRecordMapper;
 import com.lr.business.entity.VipPayResultNotifyRecord;
 import com.lr.business.service.PayResultNotifyBusinessService;
-import com.lr.result.ServiceResult;
+import com.lr.web.result.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
 

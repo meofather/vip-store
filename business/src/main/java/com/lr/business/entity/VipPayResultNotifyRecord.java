@@ -1,6 +1,6 @@
 package com.lr.business.entity;
 
-import com.lr.bean.BaseEntity;
+import com.lr.web.bean.BaseEntity;
 
 import java.math.BigDecimal;
 import java.util.Date;

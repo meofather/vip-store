@@ -8,10 +8,9 @@
  */
 package com.lr.manage.common.util;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 获取用户IP地址

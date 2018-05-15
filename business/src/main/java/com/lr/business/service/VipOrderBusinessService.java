@@ -1,7 +1,7 @@
 package com.lr.business.service;
 
 import com.lr.business.entity.VipOrder;
-import com.lr.result.ServiceResult;
+import com.lr.web.result.ServiceResult;
 
 public interface VipOrderBusinessService {
     ServiceResult<VipOrder> queryByOrderNo(String orderNo);

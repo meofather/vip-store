@@ -17,9 +17,9 @@
 
 	<plugins>
 		<plugin
-			interceptor="com.lr.rom.interceptor.PaginationInterceptor">
+			interceptor="com.lr.web.rom.interceptor.PaginationInterceptor">
 			<property name="DBDialect"
-				value="com.lr.rom.interceptor.dialect.MySQLDialect" />
+				value="com.lr.web.rom.interceptor.dialect.MySQLDialect" />
 		</plugin>
 	</plugins>
 </configuration>

@@ -2,9 +2,9 @@ package com.lr.manage.business.vipitem.service.impl;
 
 import com.lr.business.dao.VipItemStockMapper;
 import com.lr.business.entity.VipItem;
-import com.lr.result.ServiceResult;
 import com.lr.business.service.impl.VipItemBusinessServiceImpl;
 import com.lr.manage.business.vipitem.service.VipItemService;
+import com.lr.web.result.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

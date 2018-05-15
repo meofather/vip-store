@@ -1,7 +1,7 @@
 package com.lr.business.dao;
 
 import com.lr.business.entity.VipOrder;
-import com.lr.rom.IBaseMapperDao;
+import com.lr.web.rom.IBaseMapperDao;
 import org.apache.ibatis.annotations.Param;
 
 public interface VipOrderMapper extends IBaseMapperDao {

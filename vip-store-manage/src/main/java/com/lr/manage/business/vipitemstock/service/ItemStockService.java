@@ -2,9 +2,9 @@ package com.lr.manage.business.vipitemstock.service;
 
 import com.lr.business.entity.VipItemStock;
 import com.lr.business.service.ItemStockBusinessService;
-import com.lr.result.ServiceResult;
-import com.lr.rom.annotation.BasePage;
-import com.lr.rom.annotation.Pagination;
+import com.lr.web.result.ServiceResult;
+import com.lr.web.rom.annotation.BasePage;
+import com.lr.web.rom.annotation.Pagination;
 
 import java.util.Date;
 import java.util.List;

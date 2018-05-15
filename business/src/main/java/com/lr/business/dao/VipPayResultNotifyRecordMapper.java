@@ -1,7 +1,7 @@
 package com.lr.business.dao;
 
 import com.lr.business.entity.VipPayResultNotifyRecord;
-import com.lr.rom.IBaseMapperDao;
+import com.lr.web.rom.IBaseMapperDao;
 
 public interface VipPayResultNotifyRecordMapper extends IBaseMapperDao {
     int deleteByPrimaryKey(Long id);

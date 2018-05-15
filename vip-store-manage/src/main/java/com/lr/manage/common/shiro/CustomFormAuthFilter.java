@@ -2,7 +2,7 @@ package com.lr.manage.common.shiro;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lr.manage.common.shiro.dto.Authorization;
-import com.lr.result.AjaxResult;
+import com.lr.web.result.AjaxResult;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;

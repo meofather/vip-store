@@ -3,7 +3,7 @@ package com.lr.business.service.impl;
 import com.lr.business.dao.VipOrderMapper;
 import com.lr.business.entity.VipOrder;
 import com.lr.business.service.VipOrderBusinessService;
-import com.lr.result.ServiceResult;
+import com.lr.web.result.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class VipOrderBusinessServiceImpl implements VipOrderBusinessService {

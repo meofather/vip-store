@@ -2,7 +2,7 @@ package com.lr.manage.spring;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lr.manage.common.shiro.ShiroUtils;
-import com.lr.result.AjaxResult;
+import com.lr.web.result.AjaxResult;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,7 +29,7 @@ public class OwnSimpleMappingExceptionResolver extends SimpleMappingExceptionRes
     @Override
     protected ModelAndView doResolveException(HttpServletRequest request, HttpServletResponse response,
                                               Object handler, Exception ex) {
-        logger.error("操作人ID【"+ ShiroUtils.getCurrentUserId()+"】操作人【"+ShiroUtils.getCurrentUserName()+"】 请求异常！【"+request.getRequestURL().toString()+"】",ex);
+        logger.error("操作人ID【"+ ShiroUtils.getCurrentUserId()+"】操作人【"+ ShiroUtils.getCurrentUserName()+"】 请求异常！【"+request.getRequestURL().toString()+"】",ex);
         // Expose ModelAndView for chosen error view.
         String viewName = determineViewName(ex, request);
         if (viewName != null) {// JSP格式返回

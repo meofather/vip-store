@@ -1,20 +1,17 @@
 package com.lr.manage.business.vipitemstock.controller;
 
-import com.lr.business.entity.VipItem;
 import com.lr.business.entity.VipItemStock;
 import com.lr.manage.business.Constants.Constants;
-import com.lr.manage.business.vipitem.service.VipItemService;
 import com.lr.manage.business.vipitemstock.convert.ConvertTypeBean;
 import com.lr.manage.business.vipitemstock.service.ItemStockService;
 import com.lr.manage.common.util.ExcelUtil;
-import com.lr.result.AjaxResult;
-import com.lr.result.ServiceResult;
-import com.lr.rom.annotation.BasePage;
-import com.lr.rom.annotation.Pagination;
+import com.lr.web.result.AjaxResult;
+import com.lr.web.result.ServiceResult;
+import com.lr.web.rom.annotation.BasePage;
+import com.lr.web.rom.annotation.Pagination;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.Date;
 import java.util.List;
-
-import static com.lr.manage.business.Constants.Constants.IMAGE_FILE_PATH;
 
 @Controller
 @RequestMapping("/vip_item_stock")
@@ -50,10 +45,10 @@ public class ItemStockController {
     @ResponseBody
     public AjaxResult importData(@DateTimeFormat(pattern = "yyyy-MM-dd") Date invalidateStart,
                                  @DateTimeFormat(pattern = "yyyy-MM-dd") Date invalidateEnd,
-                                 String filePath,Long itemId, HttpServletRequest request) {
+                                 String filePath, Long itemId, HttpServletRequest request) {
         logger.debug(String.format("入参为:{%s}{%s}{%s}", invalidateStart, invalidateEnd, filePath));
 
-        String savePath = (String) request.getSession().getServletContext().getRealPath(IMAGE_FILE_PATH);
+        String savePath = (String) request.getSession().getServletContext().getRealPath(Constants.IMAGE_FILE_PATH);
 
         logger.debug(String.format("文件地址为:{%s}", savePath+File.separator+filePath));
         File file = new File(savePath+File.separator+filePath);

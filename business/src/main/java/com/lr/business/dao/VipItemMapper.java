@@ -1,8 +1,8 @@
 package com.lr.business.dao;
 
 import com.lr.business.entity.VipItem;
-import com.lr.rom.IBaseMapperDao;
-import com.lr.rom.annotation.Pagination;
+import com.lr.web.rom.IBaseMapperDao;
+import com.lr.web.rom.annotation.Pagination;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

@@ -2,6 +2,7 @@ package com.lr.web.constants;
 
 import java.util.UUID;
 
+import com.lr.web.util.DateUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -27,7 +28,7 @@ public class PayUtil {
 			hashCodeV = -hashCodeV;
 		}
 		// 0 代表前面补充0;d 代表参数为正数型
-		return machineId + String.format("%01d", hashCodeV);
+		return machineId + String.format("%01d", hashCodeV)+ DateUtils.getCurrentTimeNum();
 	}
 	
 }

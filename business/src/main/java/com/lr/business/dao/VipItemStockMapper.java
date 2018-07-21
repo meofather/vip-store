@@ -32,11 +32,13 @@ public interface VipItemStockMapper extends IBaseMapperDao {
                     @Param("batchDatas") List<String> batchDatas,
                     @Param("itemId") Long itemId);
 
-    VipItemStock queryByOrderNo(String orderNo);
+    List<VipItemStock> queryByOrderNo(String orderNo);
 
     VipItemStock getOne(Long itemId);
 
     public int updateItemIdbyId(@Param("id") Long id,
                                 @Param("itemId") Long itemId, @Param("mobile") String mobile,
                                 @Param("orderNo") String orderNo);
+
+    List<VipItemStock> getListByNum(@Param("itemId") Long itemId, @Param("num") Integer num);
 }

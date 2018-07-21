@@ -1,7 +1,6 @@
 package com.lr.manage.business.vipitemstock.controller;
 
 import com.lr.business.entity.VipItemStock;
-import com.lr.manage.business.Constants.Constants;
 import com.lr.manage.business.vipitemstock.convert.ConvertTypeBean;
 import com.lr.manage.business.vipitemstock.service.ItemStockService;
 import com.lr.manage.common.util.ExcelUtil;
@@ -12,6 +11,7 @@ import com.lr.web.rom.annotation.Pagination;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +29,8 @@ public class ItemStockController {
     private Logger logger = LoggerFactory.getLogger(ItemStockController.class);
     @Autowired
     private ItemStockService itemStockService;
+    @Value("${filePath}")
+    private String savePath;
 
     @RequestMapping("/pageList")
     public String pageList(VipItemStock query, BasePage page, Model model) {
@@ -48,7 +50,7 @@ public class ItemStockController {
                                  String filePath, Long itemId, HttpServletRequest request) {
         logger.debug(String.format("入参为:{%s}{%s}{%s}", invalidateStart, invalidateEnd, filePath));
 
-        String savePath = (String) request.getSession().getServletContext().getRealPath(Constants.IMAGE_FILE_PATH);
+        String savePath = (String) request.getSession().getServletContext().getRealPath(this.savePath);
 
         logger.debug(String.format("文件地址为:{%s}", savePath+File.separator+filePath));
         File file = new File(savePath+File.separator+filePath);

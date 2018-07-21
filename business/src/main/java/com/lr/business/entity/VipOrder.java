@@ -30,6 +30,16 @@ public class VipOrder extends BaseEntity {
 
     private String itemName;
 
+    private BigDecimal totalPrice;
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public String getItemName() {
         return itemName;
     }

@@ -12,9 +12,19 @@ public class VipOrderServiceImpl extends VipOrderBusinessServiceImpl implements 
 
         return mapper.updateItemIdbyId(id,orderNo);
     }
+    @Override
+    public int updateStatusByOrderNo(int status, String orderNo) {
+
+        return mapper.updateStatusByOrderNo(status,orderNo);
+    }
 
     @Override
     public int insert(VipOrder vipOrder) {
         return mapper.insert(vipOrder);
+    }
+
+    @Override
+    public int update(VipOrder order) {
+        return mapper.updateByOrderNoSelective(order);
     }
 }

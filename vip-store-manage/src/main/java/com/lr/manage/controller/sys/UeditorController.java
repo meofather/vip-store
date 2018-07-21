@@ -3,6 +3,7 @@ package com.lr.manage.controller.sys;
 import com.baidu.ueditor.ActionEnter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +16,8 @@ import java.io.UnsupportedEncodingException;
 @RequestMapping("/ueditor")
 public class UeditorController {
     private static Log logger = LogFactory.getLog(UeditorController.class);
-
+    @Value("${filePath}")
+    private String savePath;
     /**
      * 文件上传
      *
@@ -26,10 +28,8 @@ public class UeditorController {
         try {
             response.setHeader("Content-Type", "text/html");
 
-            String rootPath = request.getServletContext().getRealPath("/");
-
             request.setCharacterEncoding("utf-8");
-            response.getWriter().write(new ActionEnter(request, rootPath).exec());
+            response.getWriter().write(new ActionEnter(request, savePath).exec());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {

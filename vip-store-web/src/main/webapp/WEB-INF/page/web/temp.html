@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>九九网络科技</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="${cdnPath}/plugins/jquery-mobile/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="${cdnPath}/plugins/slider/bjqs.css"/>
+    <script src="${cdnPath}/plugins/jquery-mobile/jquery-1.10.1.min.js"></script>
+    <script src="${cdnPath}/plugins/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="${cdnPath}/plugins/slider/js/bjqs-1.3.min.js"></script>
+    <link rel="shortcut icon" href="${cdnPath}/image/logo.ico"/>
+</head>
+<body>
+
+<div data-role="page" id="pageone" data-theme="a">
+
+    <div data-role="header">
+        <input type="search" name="search" id="search" placeholder="请输入订单查询订单信息">
+        <a href="#" class="ui-btn ui-btn-right ui-icon-search ui-btn-icon-left" style="margin-top: 6px;">搜索</a>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <ul data-role="listview">
+            <#list page.result as item>
+                <li data-icon="false">
+                    <a href="#">
+                        <img src="${item.imageUrl!}">
+                        <h2>${item.itemName}</h2>
+
+                    </a>
+                </li>
+            </#list>
+        </ul>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h5>@CopyRight 九九网络科技</h5>
+        <p style="font-size: 10px;text-align: center">技术热线 13260990579</p>
+    </div><!-- /footer -->
+</div><!-- /page -->
+<script>
+    $(function () {
+        $("#search").parent().css({width: "60%"});
+    });
+</script>
+</body>
+</html>

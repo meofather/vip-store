@@ -2,7 +2,9 @@ package com.lr.business.dao;
 
 import com.lr.business.entity.VipPayResultNotifyRecord;
 import com.lr.web.rom.IBaseMapperDao;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface VipPayResultNotifyRecordMapper extends IBaseMapperDao {
     int deleteByPrimaryKey(Long id);
 

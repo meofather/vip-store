@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lr.business.dao.PayResultMapper" >
+  <insert id="insert">
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into pay_result (
+    pay_id,
+    money,
+    price,
+    type,
+    pay_no,
+    param,
+    pay_time,
+    pay_tag,
+    sign,
+    create_time
+    )
+    values (#{pay_id,jdbcType=VARCHAR}, #{money,jdbcType=VARCHAR},
+    #{price,jdbcType=VARCHAR},
+    #{type,jdbcType=VARCHAR},
+    #{pay_no,jdbcType=VARCHAR},
+    #{param,jdbcType=VARCHAR},
+    #{pay_time,jdbcType=VARCHAR},
+    #{pay_tag,jdbcType=VARCHAR},
+    #{sign,jdbcType=VARCHAR},
+    #{create_time,jdbcType=TIMESTAMP}
+    )
+  </insert>
+</mapper>

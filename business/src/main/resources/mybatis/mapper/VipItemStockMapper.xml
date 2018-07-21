@@ -31,7 +31,7 @@
         </where>
         ORDER BY create_time DESC
     </select>
-    <select id="queryByOrderNo" resultType="com.lr.business.entity.VipItemStock">
+    <select id="queryByOrderNo" resultType="list" resultMap="BaseResultMap">
         select 'true' as QUERYID,
         <include refid="Base_Column_List"/>
         from vip_item_stock
@@ -41,6 +41,11 @@
          select 'true' as QUERYID,
         <include refid="Base_Column_List"/>
         from vip_item_stock where item_id = #{itemId} AND order_no = '0000000000' order by invalidate_end DESC limit 0,1
+    </select>
+    <select id="getListByNum" resultType="com.lr.business.entity.VipItemStock" resultMap="BaseResultMap">
+        select 'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from vip_item_stock where item_id = #{itemId} AND order_no = '0000000000' order by invalidate_end DESC limit 0,#{num}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from vip_item_stock

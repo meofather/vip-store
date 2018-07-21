@@ -1,8 +1,9 @@
-package com.lr.web.param;
+package com.lr.business.entity;
 
 import java.util.Date;
 
 public class PayResult {
+	private Long id;
 private  String pay_id;
 
 private String money;
@@ -23,8 +24,15 @@ private String sign;
 
 private Date create_time;
 
+	public Long getId() {
+		return id;
+	}
 
-public String getPay_tag() {
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getPay_tag() {
 	return pay_tag;
 }
 

@@ -1,20 +1,20 @@
 package com.lr.manage.business.vipitem.controller;
 
 import com.lr.business.entity.VipItem;
-import com.lr.manage.business.Constants.Constants;
 import com.lr.manage.business.vipitem.service.VipItemService;
+import com.lr.web.constant.Constants;
 import com.lr.web.result.ServiceResult;
 import com.lr.web.rom.annotation.BasePage;
 import com.lr.web.rom.annotation.Pagination;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import static com.lr.manage.business.Constants.Constants.IMAGE_FILE_PATH;
 
 @Controller
 @RequestMapping("/vip_item")
@@ -22,6 +22,8 @@ public class VipItemController {
     private Logger logger = LoggerFactory.getLogger(VipItemController.class);
     @Autowired
     private VipItemService vipItemService;
+    @Value("${imagePath}")
+    private String imagePath;
     @RequestMapping("/pageList")
     public String pageList(VipItem query, BasePage page, Model model){
        ServiceResult<Pagination<VipItem>> rs = vipItemService.listPageInfos(query,page);
@@ -35,7 +37,7 @@ public class VipItemController {
                 if(url.toLowerCase().contains(Constants.HTTP_URL_HEAD)){
                     continue;
                 }else{
-                   url =  IMAGE_FILE_PATH+"/"+url;
+                   url =  imagePath+"/"+url;
                     vipitem.setImageUrl(url);
                 }
             }
@@ -66,7 +68,7 @@ public class VipItemController {
         if(null!=url){
             if(url.toLowerCase().contains(Constants.HTTP_URL_HEAD)){
             }else{
-                url =  IMAGE_FILE_PATH+"/"+url;
+                url =  imagePath+"/"+url;
                 rs.getData().setImageUrl(url);
             }
         }

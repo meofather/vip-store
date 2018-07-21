@@ -115,7 +115,7 @@
         <servlet-name>mvc</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-    
+
 
     <session-config>
         <session-timeout>420</session-timeout>

@@ -20,7 +20,7 @@
 				<script>
 					var logined = 0
 				</script>
-				<title>九九网络</title>
+	<title>九九网络</title>
 <!-- 引入 Bootstrap -->
 <link href="<c:url value='/css/bootstrap.min.css'/>" rel="stylesheet"/>
 <link href="<c:url value='/css/bootstrap-grid.min.css'/>" rel="stylesheet"/>

@@ -79,7 +79,7 @@
                     <div class="row-fluid">
                         <div class="control-group span6 ">
                             <label class="control-label">产品描述<span class="required">*</span></label>
-                            <input type="hidden" name="description" id="description" value="${item.description!}">
+                            <textarea style="display: none" name="description" id="description">${item.description!}</textarea>
                             <div class="controls">
                                 <script id="editor" type="text/plain" style="width:800px;height:500px;"></script>
                                 </div>
@@ -107,7 +107,7 @@
                                     var ue = UE.getEditor('editor');
                                     //对编辑器的操作最好在编辑器ready之后再做
                                     ue.ready(function() {
-                                        var temp = $("#description").val();
+                                        var temp = $("#description").text();
                                         ue.setContent(temp);
                                     });
                                     function save(e) {

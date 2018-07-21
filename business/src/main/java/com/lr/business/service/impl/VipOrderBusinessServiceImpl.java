@@ -21,4 +21,5 @@ public class VipOrderBusinessServiceImpl implements VipOrderBusinessService {
         VipOrder entity = mapper.selectByPrimaryKey(orderId);
         return ServiceResult.newSuccess(entity);
     }
+
 }

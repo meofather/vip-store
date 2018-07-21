@@ -1,6 +1,7 @@
 package com.lr.web.constant;
 
 public class Constants {
+    public static final String HTTP_URL_HEAD = "http://";
     /**
      * 是/否
      */

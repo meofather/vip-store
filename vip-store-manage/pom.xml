@@ -42,7 +42,7 @@
     </build>
     <!-- 定义公共变量 -->
     <properties>
-        <shiro.version>1.2.4</shiro.version>
+        <shiro.version>1.5.3</shiro.version>
     </properties>
 
     <name>vip-store-manage</name>
